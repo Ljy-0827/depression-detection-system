@@ -1,0 +1,218 @@
+.head-container{
+    width: 84vw;
+    margin-left: 8vw;
+    height: 10vh;
+    margin-top: 4.2vh;
+    display: inline-flex;
+}
+
+.back-button{
+    width: 16vw;
+    height: 6vh;
+    margin-top: 2vh;
+    background-color: #3B665F;
+    color: white;
+    border: solid 1px #3B665F;
+    border-radius: 26px;
+    display: inline-flex;
+}
+
+.back-button-text{
+    line-height: 6vh;
+    font-size: 2em;
+    margin-left: 1.2vw;
+}
+
+.step-container{
+    background-color: #EEF6F2;
+    width: calc(84vw - 16vw - 6vw);
+    margin-left: 6vw;
+    border-radius: 0 38px 38px 38px;
+}
+
+
+.step-box{
+    width: calc(84vw - 16vw - 6vw - 8vw);
+    margin-left: 4vw;
+    margin-top: 2.5vh;
+}
+
+:deep .el-step__head.is-success{
+    color: white;
+    border-color: #1F3430;
+}
+
+#result-step :deep .el-step__icon.is-text{
+    background-color: #587E77;
+    width: 3.2vw;
+    height: 3.2vw;
+}
+
+#result-step :deep .el-step__icon-inner{
+    color: #587E77;
+}
+
+:deep .el-step__icon.is-text{
+    background-color: white;
+    width: 3.2vw;
+    height: 3.2vw;
+    border-color: #1F3430;
+    border-width: 3px;
+    color: white;
+}
+
+:deep .el-step__title.is-success{
+    color:#1F3430;
+    font-size: 1.7em;
+    margin-top: 1.1vh;
+    font-weight: 350;
+}
+
+:deep .el-step__title.is-wait{
+    color:#1F3430;
+    font-size: 1.7em;
+    margin-top: 1.1vh;
+    font-weight: 350;
+}
+
+:deep .el-step__line{
+    background-color: #1F3430;
+    margin-top: 6px;
+    border-top: solid 1px #1F3430;
+}
+
+
+:deep .el-step__title.is-process{
+    color:#1F3430;
+    font-size: 1.7em;
+    margin-top: 1.1vh;
+    font-weight: 350;
+}
+
+.page-title{
+    font-size: 3.2em;
+    color: #3B665F;
+    margin-top: 3.2vh;
+    width: 100vw;
+    font-weight: 600;
+    text-align: center;
+}
+
+.tool-container{
+    width: 84vw;
+    height: 10.5vh;
+    margin-left: 8vw;
+    display: inline-flex;
+    margin-top: 3.2vh;
+}
+
+.left-tool-group{
+    width: 9vw;
+    border-radius: 20px;
+    background-color: #EEF6F2;
+}
+
+.camera-button-close{
+    background-color: #A1A1A1;
+    color: #1F3430;
+    width: 4vh;
+    height: 4vh;
+    margin-top: 0.75vh;
+    margin-left: calc((9vw - 4vh) / 2);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.mic-button-close{
+    background-color: #A1A1A1;
+    color: #1F3430;
+    width: 4vh;
+    height: 4vh;
+    margin-top: 1vh;
+    margin-left: calc((9vw - 4vh) / 2);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.camera-button-open{
+    background-color: #BDDDCD;
+    color: #1F3430;
+    width: 4vh;
+    height: 4vh;
+    margin-top: 0.75vh;
+    margin-left: calc((9vw - 4vh) / 2);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.mic-button-open{
+    background-color: #BDDDCD;
+    color: #1F3430;
+    width: 4vh;
+    height: 4vh;
+    margin-top: 1vh;
+    margin-left: calc((9vw - 4vh) / 2);
+    border-radius: 12px;
+    text-align: center;
+}
+
+
+.tool-text-box{
+    width: 50vw;
+    background-color: white;
+    border-radius: 26px;
+    box-shadow: 0 6px 20px 0 rgba(96, 94, 94, 0.18);
+}
+
+.tool-text{
+    color: #1F3430;
+    font-size: 1.9em;
+    line-height: 1.9em;
+    margin-left: 5.5vw;
+    margin-right: 5.5vw;
+    margin-top: 2.2vh;
+}
+
+.media-box{
+    width: 25vw;
+    background-color: #3B665F;
+    border-radius: 26px 26px 26px 0;
+}
+
+.read-text-container{
+    width: 84vw;
+    height: 46vh;
+    background-color: #EEF6F2;
+    margin-left: 8vw;
+    margin-top: 4vh;
+    border: dashed 2px #3B665F;
+    border-radius: 26px;
+}
+
+.read-button{
+    width: 48vw;
+    margin-left: 26vw;
+    height: 6vh;
+    background-color: #3B665F;
+    border: solid 1px #3B665F;
+    border-radius: 30px;
+    color: white;
+    margin-top: 3.5vh;
+    font-size: 2.3em;
+}
+
+.read-text-instruction{
+    font-size: 2.4em;
+    line-height: 2.1em;
+    color: #1F3430;
+    text-align: center;
+    margin-top: calc((46vh - 2.1em - 4px) / 2);
+}
+
+.read-text{
+    margin: 4vw 6vw;
+    font-size: 2.1em;
+    white-space: pre-wrap;
+    color: #1F3430;
+    line-height: 2.1em;
+}

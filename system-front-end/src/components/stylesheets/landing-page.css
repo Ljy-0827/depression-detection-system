@@ -1,0 +1,248 @@
+
+
+.head-container{
+    position: absolute;
+    top: 6.8vh;
+}
+
+.header{
+    color: #3B665F;
+    font-size: 3.7em;
+    margin-left: 6.5vh;
+    font-weight: 600;
+}
+
+.header-description{
+    margin-left: 6.5vh;
+    margin-right: 6.5vh;
+    margin-top: 2.2vh;
+    line-height: 1.9em;
+    font-size: 1.7em;
+    font-weight: 340;
+    color: #1F3430;
+}
+
+.mid-container{
+    width: calc(100vw - 12.5vh);
+    margin-left: 6vh;
+    margin-right: 6.5vh;
+    height: 4.6vh;
+    position: absolute;
+    top: 22.5vh;
+    display: inline-flex;
+}
+
+.input-bar-box{
+    width: calc(100vw - 28vh);
+    height: 4.6vh;
+}
+
+.system-begin-button{
+    width: 14vh;
+    margin-left: calc(2vh - 4px);
+    background-color: #3B665F;
+    border-radius: 2.2vh;
+    border: solid 1px #3B665F;
+    height: calc(100% - 2px);
+    margin-top: 2px;
+    color: white;
+    font-size: 1.8em;
+}
+
+.upload-id-button{
+    position: absolute;
+    height: calc(4.6vh - 20px);
+    margin-top: 11px;
+    left: 26.6vh;
+    width: 7vh;
+    color: white;
+    font-size: 1.8em;
+    background-color: #3B665F;
+    border: solid 1px #3B665F;
+    border-radius: 2.25vh;
+}
+
+:deep .el-input__wrapper{
+    height: calc(4.6vh - 4px);
+    border-radius: 2.2vh;
+    border: solid 2px #3B665F;
+}
+
+:deep .el-input__inner{
+    color: #3B665F;
+    font-size: 1.9em;
+    font-weight: 340;
+    margin-left: 1vh;
+    margin-right: 8vh;
+}
+
+.system-process-container{
+    background-color: white;
+    height: 37.5vh;
+    width: calc(100vw - 11vh);
+    margin-left: 5.5vh;
+    margin-right: 5.5vh;
+    position: absolute;
+    top: 31.5vh;
+    border-radius: 40px;
+    display: inline-block;
+}
+
+.area-header{
+    font-size: 2.3em;
+    color: #1F3430;
+    font-weight: 500;
+    margin-top: 2.5vh;
+    margin-left: 4vh;
+}
+
+.area-content-wrapper{
+    width: calc(100vw - 14vh);
+    margin-left: 3vh;
+    height: 25.5vh;
+    display: inline-flex;
+}
+
+.process-box{
+    width: calc(100% - 39vw);
+    display: block;
+    margin-top: 3vh;
+}
+
+.item-box{
+    display: inline-flex;
+}
+
+.item-box-index{
+    width: 5vw;
+    height: 5vw;
+    background-color: #EEF6F2;
+    border-radius: 50%;
+    color: #1F3430;
+    font-size: 1.6em;
+    font-weight: 500;
+    line-height: 5vw;
+    text-align: center;
+}
+
+.item-box-content{
+    margin-left: 2.5vw;
+}
+
+.item-header{
+    color: #3B665F;
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 5vw;
+}
+
+.item-description{
+    color: #1F3430;
+    font-size: 1.7em;
+    width: 29vw;
+    font-weight: 340;
+    line-height: 1.9em;
+    margin-top: 1vh;
+}
+
+.illustration{
+    width: 38vw;
+    margin-top: -0.5vh;
+}
+
+img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.area-button{
+    width: 14vh;
+    background-color: #3B665F;
+    border-radius: 2vh;
+    border: solid 1px #3B665F;
+    height: 4vh;
+    margin-left: 55vw;
+    color: white;
+    font-size: 1.8em;
+}
+
+.questionnaire-container{
+    background-color: white;
+    height: 15.5vh;
+    width: calc(100vw - 11vh);
+    margin-left: 5.5vh;
+    margin-right: 5.5vh;
+    position: absolute;
+    top: 71.5vh;
+    border-radius: 40px;
+    display: inline-block;
+}
+
+.area-column-wrapper{
+    display: inline-flex;
+    width: calc(100% - 4vh);
+    margin-left: 4vh;
+}
+
+
+.area-column-left{
+    width: calc(55vw - 7vh);
+    color: #1F3430;
+    font-size: 1.7em;
+    font-weight: 340;
+    line-height: 1.9em;
+    margin-top: 2vh;
+}
+
+.questionnaire-button{
+    width: 14vh;
+    background-color: #3B665F;
+    border-radius: 2vh;
+    border: solid 1px #3B665F;
+    height: 4vh;
+    color: white;
+    font-size: 1.8em;
+    margin-left: 3vh;
+    margin-top: 3vh;
+}
+
+.foot-container{
+    width: 100vw;
+    height: 9vh;
+    position: absolute;
+    top: 91vh;
+    background-color: #3B665F;
+    display: inline-block;
+}
+
+.footer-top{
+    display: inline-flex;
+    width: 80vw;
+    margin-left: 10vw;
+    height: 2.6vh;
+    margin-top: 2vh;
+}
+
+.logo-wrapper{
+    width: 27vw;
+}
+
+.lab-wrapper{
+    color: white;
+    line-height: 2.6vh;
+    width: 56vw;
+    text-align: right;
+    font-size: 1.1em;
+    font-weight: 340;
+}
+
+.footer-bottom{
+    font-size: 1.4em;
+    width: 100vw;
+    text-align: center;
+    line-height: 2vh;
+    color: white;
+    font-weight: 500;
+}
