@@ -11,6 +11,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import landingPage from '@/components/landingPage.vue';
 import readingPage from "@/components/readingPage.vue";
 import interviewPage from "@/components/interviewPage.vue";
+import systemResultPage from "@/components/systemResultPage.vue";
 
 const myRouter = createRouter({
     mode: 'history',
@@ -29,7 +30,14 @@ const myRouter = createRouter({
             path: '/interview',
             name: 'interview-page',
             component: interviewPage,
-        }]
+        },
+        {
+            path: '/system_result',
+            name: 'system-result-page',
+            component: systemResultPage,
+        }
+
+    ]
 })
 
 const myApp = createApp(App)
