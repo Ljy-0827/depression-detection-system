@@ -199,3 +199,112 @@
     margin-top: 0.25vh;
     margin-left: 1.75vw;
 }
+
+.interview-container{
+    width: 84vw;
+    height: 46vh;
+    background-color: #EEF6F2;
+    margin-left: 8vw;
+    margin-top: 4vh;
+    border: dashed 2px #3B665F;
+    border-radius: 26px;
+}
+
+.interview-button{
+    width: 48vw;
+    margin-left: 26vw;
+    height: 6vh;
+    background-color: #3B665F;
+    border: solid 1px #3B665F;
+    border-radius: 30px;
+    color: white;
+    margin-top: 3.5vh;
+    font-size: 2.3em;
+}
+
+.interview-instruction{
+    font-size: 2.4em;
+    line-height: 2.1em;
+    color: #1F3430;
+    text-align: center;
+    margin-top: calc((46vh - 2.1em - 4px) / 2);
+}
+
+.interview-media-container{
+    background-color: transparent;
+    height: 25vh;
+    width: 78vw;
+    margin-left: 3vw;
+    margin-top: 2vh;
+}
+
+.question-tool-container{
+    background-color: white;
+    height: 13.5vh;
+    width: 78vw;
+    margin-left: 3vw;
+    margin-top: 2vh;
+    border-radius: 22px;
+    padding-top: 1.5vh;
+}
+
+.question-text{
+    margin-left: 4vw;
+    margin-right: 4vw;
+    font-size: 1.9em;
+    line-height: 1.9em;
+    color: #1F3430;
+    height: 3.8em;
+}
+
+.question-util-box{
+    display: inline-flex;
+    width: calc(100% - 8vw);
+    margin-left: 4vw;
+    height: 4.3vh;
+    margin-top: 1.3vh;
+}
+
+.question-big-button{
+    background-color: #3B665F;
+    border: solid 1px #3B665F;
+    color: white;
+    border-radius: 16px;
+    width: 34vw;
+    font-size: 1.8em;
+}
+
+.question-button-pri{
+    width: 17vw;
+    background-color: #3B665F;
+    border: solid 1px #3B665F;
+    color: white;
+    border-radius: 16px;
+    font-size: 1.8em;
+    margin-left: 3vw;
+}
+
+.question-button{
+    width: 17vw;
+    color: #3B665F;
+    border-radius: 16px;
+    font-size: 1.8em;
+    border: solid 3px #3B665F;
+    background-color: white;
+}
+
+.answer-box{
+    display: inline-flex;
+    background-color: #BDDDCD;
+    height: 100%;
+    width: 30vw;
+    margin-left: 3vw;
+    border-radius: 16px;
+}
+
+.answer-mix{
+    color: #1F3430;
+    font-size: 1.8em;
+    line-height: 4.3vh;
+    margin-left: 2.5vw;
+}

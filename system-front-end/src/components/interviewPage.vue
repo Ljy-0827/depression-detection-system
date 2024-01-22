@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="tool-text-box">
-      <div class="tool-text">请您在确认音视频权限均已打开后，大声朗读屏幕上的两段短文。</div>
+      <div class="tool-text">请您在确认音视频权限均已打开后，大声回答下方访谈的问题。</div>
     </div>
     <div class="media-box">
       <div class="media-instruction" v-if="!isCameraOpen" style="margin-top: 2.85vh">音视频将在{{this.countdown}}秒后</div>
@@ -39,9 +39,42 @@
       <video ref="videoElement" autoplay class="camera" v-if="isCameraOpen || isTryOpenCamera" muted></video>
     </div>
   </div>
+  <div class="interview-container">
+    <div class="interview-instruction" v-if="!isStartInterview">
+      当您做好准备时，请点击下方按钮开始访谈
+    </div>
+    <div class="interview-media-container">
+
+    </div>
+    <div class="question-tool-container" v-for="(item, index) in this.questionAndAnswer" v-show="item.isReadyShow" :key="index">
+      <div class="question-text">
+        Q{{index + 1}}. {{ item.question }}
+      </div>
+      <div class="question-util-box">
+        <button class="question-big-button" v-if="isAllowStart" @click="startRecording">开始作答</button>
+        <button class="question-big-button" v-if="isAllowStop" @click="stopRecording">结束作答</button>
+        <button class="question-button" v-if="isAllowRestart" @click="startRecordingAgain">重新录制</button>
+        <button class="question-button-pri" v-if="isAllowUpload" @click="moveToNextQuestion">上传作答</button>
+        <div class="answer-box" v-show="item.answer !== 0">  <!-- item.answer !== 0 -->
+          <div class="answer-mix" disabled="item.status" @click="onClickAudio">
+            <i class="bi bi-play-fill" style="margin-right: 12.5vw" v-show="!item.status && !this.isPlaying"></i>
+            <i class="bi bi-pause-fill" style="margin-right: 12.5vw" v-show="!item.status && this.isPlaying"></i>
+            <i class="bi bi-check" style="margin-right: 12.5vw" v-show="item.status"></i>
+            {{item.answer}}''
+            <i class="bi bi-soundwave" style="margin-left: 2vw"></i>
+          </div>
+          <div class="answer-avatar"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <button class="interview-button" v-if="!isStartInterview" @click="startInterview">开始访谈</button>
+  <button class="interview-button" v-if="isAllowResult">查看结果</button>
 </template>
 
 <script>
+import {interview} from "@/utils.js"
 import {ElMessage} from "element-plus";
 
 export default {
@@ -56,17 +89,47 @@ export default {
       isMicOpen: false,
       isRecording: false,
 
+      isStartInterview: false,
+      isAllowResult: false,
+
+      questionAndAnswer:[],
+      questionAnswering: 0,
+
+      isAllowStart: true,
+      isAllowStop: false,
+      isAllowRestart: false,
+      isAllowUpload: false,
+      isPlaying: false,
+
       mediaStream: null,
-      mediaRecorder: null,
-      chunks: [],
+
+      audioElement: null,
+      audioChunks: [],
+      audioUrl: null,
+      mediaRecorderAudio: null,
+
+      videoChunks: [],
+      videoUrl: null,
+      mediaRecorderVideo: null,
+
+      recordingStartTime: null,
+      tmpSeconds: 0,
     }
   },
 
   mounted() {
+    this.initialQuestionAndAnswer();
     this.startCountdown();
   },
 
   methods: {
+    initialQuestionAndAnswer(){
+      for(let i = 0; i < interview.length; i++){
+        this.questionAndAnswer.push({question: interview[i], answer: 0, isReadyShow: false})
+      }
+      console.log(this.questionAndAnswer);
+    },
+
     backToLandingPage() {
       this.$router.push('/');
     },
@@ -108,6 +171,140 @@ export default {
         ElMessage.error('无法访问音视频');
         console.error('无法访问音视频', error);
       }
+    },
+
+    startInterview(){
+      this.isAllowStart = true;
+      this.isAllowStop = false;
+      this.isAllowRestart = false;
+      this.isAllowUpload = false;
+
+      this.isStartInterview = true;
+      this.questionAndAnswer[0].isReadyShow = true;
+    },
+
+    startRecording() {
+      this.isAllowStart = false;
+      this.isAllowStop = true;
+      this.isAllowRestart = false;
+      this.isAllowUpload = false;
+
+      navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+        this.isRecording = true;
+        this.audioChunks = [];
+        this.videoChunks = [];
+
+        this.mediaRecorderAudio = new MediaRecorder(stream);
+        this.mediaRecorderVideo = new MediaRecorder(stream, { mimeType: 'video/webm' });
+
+        this.mediaRecorderAudio.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            this.audioChunks.push(event.data);
+          }
+        };
+
+        this.mediaRecorderVideo.ondataavailable = (event) => {
+          if (event.data.size > 0) {
+            this.videoChunks.push(event.data);
+          }
+        };
+
+        this.mediaRecorderAudio.onstop = () => {
+          this.isRecording = false;
+          const audioBlob = new Blob(this.audioChunks, { type: "audio/wav" });
+          this.audioUrl = URL.createObjectURL(audioBlob);
+        };
+
+        this.mediaRecorderVideo.onstop = () => {
+          const videoBlob = new Blob(this.videoChunks, { type: "video/webm" });
+          this.videoUrl = URL.createObjectURL(videoBlob);
+        };
+
+        this.mediaRecorderAudio.start();
+        this.mediaRecorderVideo.start();
+        this.recordingStartTime = new Date();
+      });
+    },
+
+    stopRecording() {
+      this.isAllowStart = false;
+      this.isAllowStop = false;
+      this.isAllowRestart = true;
+      this.isAllowUpload = true;
+
+      if (this.mediaRecorderAudio && this.isRecording) {
+        this.mediaRecorderAudio.stop();
+        this.mediaRecorderVideo.stop();
+      }
+
+      if (this.recordingStartTime) {
+        const endTime = new Date();
+        const seconds = Math.round((endTime - this.recordingStartTime) / 1000);
+        this.tmpSeconds = seconds;
+      }
+
+      // 处理音频
+      const audioBlob = new Blob(this.audioChunks, { type: "audio/wav" });
+      this.audioUrl = URL.createObjectURL(audioBlob);
+
+      // 处理视频
+      const videoBlob = new Blob(this.videoChunks, { type: "video/webm" });
+      this.videoUrl = URL.createObjectURL(videoBlob);
+
+      this.questionAndAnswer[this.questionAnswering].answer = this.tmpSeconds;
+    },
+
+    startRecordingAgain(){
+      this.audioChunks = [];
+      this.audioUrl = null;
+      this.mediaRecorderAudio = null;
+      this.mediaRecorderVideo = null;
+      this.videoUrl = null;
+      this.videoChunks = [];
+      this.audioElement = null;
+      this.startRecording();
+    },
+
+    onClickAudio(){
+      if (this.isPlaying) {
+        if (this.audioElement && this.isPlaying) {
+          this.audioElement.pause();
+          this.isPlaying = false;
+        }
+      } else {
+        console.log("status:", this.audioUrl);
+        if (this.audioUrl && !this.isPlaying) {
+          if (this.audioElement) {
+            this.audioElement.pause(); // 先暂停任何正在播放的音频
+          }
+
+          this.audioElement = new Audio(this.audioUrl);
+          this.audioElement.addEventListener("ended", () => {
+            this.isPlaying = false;
+          });
+          this.audioElement.play();
+          this.isPlaying = true;
+        }
+      }
+    },
+
+    moveToNextQuestion(){
+      //this.postVideoToBackend();
+      this.questionAndAnswer[this.questionAnswering].isReadyShow = false;
+      this.questionAndAnswer[this.questionAnswering].status = true;
+      this.questionAnswering ++;
+      this.questionAndAnswer[this.questionAnswering].isReadyShow = true;
+      this.audioChunks = [];
+      this.videoChunks = [];
+      this.audioUrl = null;
+      this.videoUrl = null;
+      this.mediaRecorderAudio = null;
+      this.mediaRecorderVideo = null;
+      this.audioElement = null;
+      this.isAllowStart = true;
+      this.isAllowStop = false;
+      this.isAllowRestart = false;
+      this.isAllowUpload = false;
     },
   }
 }
