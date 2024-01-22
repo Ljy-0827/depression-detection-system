@@ -185,3 +185,17 @@
     background-color: #3B665F;
     border-radius: 26px 26px 26px 0;
 }
+
+.media-instruction{
+    color: white;
+    font-size: 1.7em;
+    text-align: center;
+    line-height: 1.7em;
+    font-weight: 340;
+}
+
+.camera{
+    height: 10vh;
+    margin-top: 0.25vh;
+    margin-left: 1.75vw;
+}

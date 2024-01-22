@@ -1,6 +1,6 @@
 <template>
   <div class="head-container">
-    <div class="back-button">
+    <div class="back-button" @click="backToLandingPage">
       <i class="bi bi-arrow-left-short" style="font-size: 4em; margin-left: 1.2vw; line-height: 6vh"></i>
       <div class="back-button-text">返回</div>
     </div>
@@ -34,7 +34,7 @@
       <div class="tool-text">请您在确认音视频权限均已打开后，大声朗读屏幕上的两段短文。</div>
     </div>
     <div class="media-box">
-      <div class="media-instruction" v-if="!isCameraOpen" style="margin-top: 2.3vh">音视频将在{{this.countdown}}秒后</div>
+      <div class="media-instruction" v-if="!isCameraOpen" style="margin-top: 2.85vh">音视频将在{{this.countdown}}秒后</div>
       <div class="media-instruction" v-if="!isCameraOpen">自动尝试开启</div>
       <video ref="videoElement" autoplay class="camera" v-if="isCameraOpen || isTryOpenCamera" muted></video>
     </div>
@@ -90,6 +90,13 @@ export default {
   },
 
   methods:{
+    backToLandingPage(){
+      this.$router.push('/');
+    },
+    nextDetection(){
+      this.$router.push('/interview');
+    },
+
     startCountdown() {
       this.countdown = 3;
       this.timer = setInterval(() => {

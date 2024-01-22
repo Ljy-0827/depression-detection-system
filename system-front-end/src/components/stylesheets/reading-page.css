@@ -181,9 +181,10 @@
 
 .media-instruction{
     color: white;
-    font-size: 1.9em;
+    font-size: 1.7em;
     text-align: center;
-    line-height: 1.9em;
+    line-height: 1.7em;
+    font-weight: 340;
 }
 
 .camera{
