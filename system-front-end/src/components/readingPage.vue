@@ -52,11 +52,11 @@
   </div>
   <button class="read-button" v-if="isAllowStart" @click="startReading">开始朗读</button>
   <button class="read-button" v-if="isAllowNextPage" @click="nextPage">下一页</button>
-  <button class="read-button" v-if="isAllowStop">结束朗读</button>
+  <button class="read-button" v-if="isAllowStop" @click="stopRecording">结束朗读</button>
 </template>
 
 <script>
-import { text1, text2 } from "@/utils.js";
+import { text1, text2, ipAddress } from "@/utils.js";
 import { ElMessage } from "element-plus";
 
 export default {
@@ -78,6 +78,7 @@ export default {
       isCameraOpen: false,
       isMicOpen: false,
       isRecording: false,
+      isUploading: false,
 
       mediaStream: null,
       mediaRecorder: null,
@@ -139,14 +140,84 @@ export default {
       this.isAllowNextPage = true;
       this.isAllowStop = false;
       this.currentPage ++;
+      this.startRecording();
     },
+
     nextPage(){
       this.isAllowStart = false;
       this.isAllowNextPage = false;
       this.isAllowStop = true;
       this.currentPage ++;
     },
+
+    startRecording() {
+      this.isRecording = true;
+
+      this.mediaRecorder = new MediaRecorder(this.mediaStream);
+      this.chunks = [];
+
+      this.mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          this.chunks.push(event.data);
+        }
+      };
+
+      this.mediaRecorder.start();
+    },
+
+    stopRecording() {
+      this.isRecording = false;
+      //this.isCameraOpen = false;
+      if (this.mediaRecorder && this.mediaRecorder.state !== 'inactive') {
+        this.mediaRecorder.stop();
+        this.mediaStream.getTracks().forEach((track) => track.stop());
+        this.$refs.videoElement.srcObject = null;
+      }
+
+      setTimeout(this.postMediaToBackend, 1000);
+    },
+
+    async postMediaToBackend() {
+      this.isUploading = true;
+      console.log(this.chunks.length);
+      if (this.chunks.length === 0) {
+        console.log('录制数据为空，无法发送至后端');
+        ElMessage.error('录制数据为空，上传失败');
+        this.isUploading = false;
+        return;
+      }
+
+      try {
+        const blob = new Blob(this.chunks, {type: 'video/webm'});
+        const formData = new FormData();
+        formData.append('video', blob, 'reading_video.webm');
+
+        // 使用fetch API将数据POST到后端
+        const response = await fetch(`http://${ipAddress}/upload-video`, {
+          method: 'POST',
+          body: formData,
+        });
+        if (response.ok) {
+          console.log('视频上传成功！');
+          ElMessage({
+            message: '视频已成功上传',
+            type: 'success',
+          });
+          this.isUploading = false;
+          this.$router.push('/interview');
+        } else {
+          ElMessage.error('视频上传失败');
+          console.error('视频上传失败：', response.statusText);
+          this.isUploading = false;
+        }
+      } catch (error) {
+        ElMessage.error('视频上传失败');
+        console.error('视频上传出错：', error);
+        this.isUploading = false;
+      }
+    }
   }
+
 }
 </script>
 
