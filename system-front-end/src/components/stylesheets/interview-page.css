@@ -248,6 +248,20 @@
     padding-top: 1.5vh;
 }
 
+.finish-instruction{
+    background-color: white;
+    height: 15vh;
+    width: 78vw;
+    margin-left: 3vw;
+    margin-top: 2vh;
+    border-radius: 22px;
+    color: #3B665F;
+    font-size: 2.2em;
+    line-height: 15vh;
+    text-align: center;
+    font-weight: 500;
+}
+
 .question-text{
     margin-left: 4vw;
     margin-right: 4vw;

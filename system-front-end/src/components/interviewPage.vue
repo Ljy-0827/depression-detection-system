@@ -68,13 +68,16 @@
       </div>
 
     </div>
+    <div class="finish-instruction" v-if="isAllowResult">
+      您已全部作答完毕
+    </div>
   </div>
   <button class="interview-button" v-if="!isStartInterview" @click="startInterview">开始访谈</button>
-  <button class="interview-button" v-if="isAllowResult">查看结果</button>
+  <button class="interview-button" v-if="isAllowResult" @click="checkResult">查看结果</button>
 </template>
 
 <script>
-import {interview} from "@/utils.js"
+import {interview, ipAddress} from "@/utils.js"
 import {ElMessage} from "element-plus";
 
 export default {
@@ -289,11 +292,16 @@ export default {
     },
 
     moveToNextQuestion(){
-      //this.postVideoToBackend();
+      this.postVideoToBackend();
       this.questionAndAnswer[this.questionAnswering].isReadyShow = false;
       this.questionAndAnswer[this.questionAnswering].status = true;
-      this.questionAnswering ++;
-      this.questionAndAnswer[this.questionAnswering].isReadyShow = true;
+      if(this.questionAnswering === this.questionAndAnswer.length - 1){
+        this.isAllowResult = true;
+      }
+      if(this.questionAnswering < this.questionAndAnswer.length - 1){
+        this.questionAnswering ++;
+        this.questionAndAnswer[this.questionAnswering].isReadyShow = true;
+      }
       this.audioChunks = [];
       this.videoChunks = [];
       this.audioUrl = null;
@@ -306,6 +314,39 @@ export default {
       this.isAllowRestart = false;
       this.isAllowUpload = false;
     },
+
+    async postVideoToBackend() {
+      try {
+        const blob = new Blob(this.videoChunks, {type: 'video/webm'});
+        const formData = new FormData();
+        formData.append('video', blob, `interview${this.questionAnswering + 1}_video.webm`);
+
+        // 发送 POST 请求
+        const response = await fetch(`http://${ipAddress}/upload-video`, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          ElMessage({
+            message: '视频上传成功',
+            type: 'success',
+          });
+          // 在上传成功后执行的逻辑
+        } else {
+          ElMessage.error('视频上传失败');
+          // 在上传失败后执行的逻辑
+        }
+      } catch (error) {
+        ElMessage.error('视频上传失败');
+        console.error('视频上传失败', error);
+        // 处理异常情况
+      }
+    },
+
+    checkResult(){
+      this.$router.push('/system_result');
+    }
   }
 }
 </script>
