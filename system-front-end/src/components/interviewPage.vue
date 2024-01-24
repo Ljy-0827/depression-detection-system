@@ -77,8 +77,8 @@
 </template>
 
 <script>
-import {interview, ipAddress} from "@/utils.js"
-import {ElMessage} from "element-plus";
+import { interview, ipAddress, protocolMode } from "@/utils.js"
+import { ElMessage } from "element-plus";
 
 export default {
   name: "interviewPage",
@@ -322,7 +322,7 @@ export default {
         formData.append('video', blob, `interview${this.questionAnswering + 1}_video.webm`);
 
         // 发送 POST 请求
-        const response = await fetch(`http://${ipAddress}/upload-video`, {
+        const response = await fetch(`${protocolMode}://${ipAddress}/upload-video`, {
           method: 'POST',
           body: formData,
         });

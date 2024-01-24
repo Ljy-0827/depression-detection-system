@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { text1, text2, ipAddress } from "@/utils.js";
+import { text1, text2, ipAddress, protocolMode } from "@/utils.js";
 import { ElMessage } from "element-plus";
 
 export default {
@@ -189,11 +189,17 @@ export default {
 
       try {
         const blob = new Blob(this.chunks, {type: 'video/webm'});
+
+        const fileSizeInBytes = blob.size;
+        //const fileSizeInMB = fileSizeInBytes / (1024 * 1024);
+        //console.log(`视频文件大小: ${fileSizeInMB} MB`);
+
         const formData = new FormData();
         formData.append('video', blob, 'reading_video.webm');
+        formData.append('fileSize', fileSizeInBytes);
 
         // 使用fetch API将数据POST到后端
-        const response = await fetch(`http://${ipAddress}/upload-video`, {
+        const response = await fetch(`${protocolMode}://${ipAddress}/upload-video`, {
           method: 'POST',
           body: formData,
         });
