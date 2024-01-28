@@ -195,7 +195,7 @@ export default {
         //console.log(`视频文件大小: ${fileSizeInMB} MB`);
 
         const formData = new FormData();
-        formData.append('video', blob, 'reading_video.webm');
+        formData.append('video', blob, 'reading.webm');
         formData.append('fileSize', fileSizeInBytes);
 
         // 使用fetch API将数据POST到后端
