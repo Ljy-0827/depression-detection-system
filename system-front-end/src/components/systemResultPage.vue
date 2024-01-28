@@ -25,7 +25,7 @@
               测试分数
             </div>
             <div class="score-instruction">
-              16/27
+              {{ this.score }}/27
             </div>
           </div>
           <button class="print-button">
@@ -74,7 +74,15 @@
 
 <script>
 export default {
-  name: "systemResultPage"
+  name: "systemResultPage",
+  data(){
+    return{
+      score: -1,
+    }
+  },
+  mounted() {
+    this.score = this.$route.query.score;
+  }
 }
 </script>
 

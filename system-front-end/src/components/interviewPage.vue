@@ -293,6 +293,7 @@ export default {
 
     moveToNextQuestion(){
       this.postVideoToBackend();
+      //this.postAudioToBackend();
       this.questionAndAnswer[this.questionAnswering].isReadyShow = false;
       this.questionAndAnswer[this.questionAnswering].status = true;
       if(this.questionAnswering === this.questionAndAnswer.length - 1){
@@ -318,8 +319,11 @@ export default {
     async postVideoToBackend() {
       try {
         const blob = new Blob(this.videoChunks, {type: 'video/webm'});
+        const fileSizeInBytes = blob.size;
+
         const formData = new FormData();
-        formData.append('video', blob, `interview${this.questionAnswering + 1}_video.webm`);
+        formData.append('video', blob, `interview${this.questionAnswering + 1}.webm`);
+        formData.append('fileSize', fileSizeInBytes);
 
         // 发送 POST 请求
         const response = await fetch(`${protocolMode}://${ipAddress}/upload-video`, {
@@ -328,6 +332,7 @@ export default {
         });
 
         if (response.ok) {
+          console.log("ok")
           ElMessage({
             message: '视频上传成功',
             type: 'success',
@@ -345,7 +350,7 @@ export default {
     },
 
     checkResult(){
-      this.$router.push('/system_result');
+      this.$router.push('/waiting');
     }
   }
 }

@@ -12,6 +12,7 @@ import landingPage from '@/components/landingPage.vue';
 import readingPage from "@/components/readingPage.vue";
 import interviewPage from "@/components/interviewPage.vue";
 import systemResultPage from "@/components/systemResultPage.vue";
+import waitingResultPage from "@/components/waitingResultPage.vue";
 
 const myRouter = createRouter({
     mode: 'history',
@@ -30,6 +31,11 @@ const myRouter = createRouter({
             path: '/interview',
             name: 'interview-page',
             component: interviewPage,
+        },
+        {
+            path: '/waiting',
+            name: 'waiting-result-page',
+            component: waitingResultPage,
         },
         {
             path: '/system_result',
