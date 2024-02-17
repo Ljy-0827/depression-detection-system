@@ -1,0 +1,246 @@
+.head-container{
+    position: absolute;
+    top: 5.5vh;
+    width: 60vw;
+    margin-left: 20vw;
+    display: block;
+}
+
+.header{
+    color: #3B665F;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.header-description{
+    margin-top: 2vh;
+    line-height: 1.7em;
+    font-size: 1.1em;
+    font-weight: 340;
+    color: #1F3430;
+}
+
+.mid-container{
+    width: 60vw;
+    margin-left: 20vw;
+    height: 5.5vh;
+    position: absolute;
+    top: 22vh;
+    display: inline-flex;
+}
+
+.input-bar-box{
+    width: calc(60vw - 14vw);
+    height: 5.5vh;
+    margin-left: 0.5vw;
+}
+
+.system-begin-button{
+    width: 12vw;
+    background-color: #3B665F;
+    margin-left: 1vw;
+    border-radius: 24px;
+    border: solid 1px #3B665F;
+    height: calc(100% - 2px);
+    margin-top: 2px;
+    color: white;
+    font-size: 1.1em;
+}
+
+.upload-id-button{
+    position: absolute;
+    height: calc(5.5vh - 10px);
+    margin-top: 5px;
+    left: calc(40.5vw - 6px);
+    width: 6vw;
+    color: white;
+    font-size: 1.1em;
+    background-color: #3B665F;
+    border: solid 1px #3B665F;
+    border-radius: 2.25vh;
+}
+
+:deep .el-input__wrapper{
+    height: calc(5.5vh - 4px);
+    border-radius: 24px;
+    border: solid 1px #3B665F;
+}
+
+:deep .el-input__inner{
+    color: #3B665F;
+    font-size: 1.1em;
+    font-weight: 340;
+    margin-left: 1vh;
+    margin-right: 8vh;
+}
+
+.system-process-container{
+    background-color: white;
+    height: 37.5vh;
+    width: 60vw;
+    margin-left: 20vw;
+    position: absolute;
+    top: 30vh;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.area-header{
+    font-size: 1.3em;
+    color: #1F3430;
+    font-weight: 500;
+    margin-top: 2.7vh;
+    margin-left: 3.5vw;
+}
+
+.area-content-wrapper{
+    width: calc(60vw - 6vw);
+    margin-left: 3.5vw;
+    height: 23vh;
+    display: inline-flex;
+}
+
+.process-box{
+    width: calc(54vw - 28.5vw);
+    display: block;
+    margin-top: 2vh;
+}
+
+.item-box{
+    display: inline-flex;
+}
+
+.item-box-index{
+    width: 2.5vw;
+    height: 2.5vw;
+    background-color: #EEF6F2;
+    border-radius: 50%;
+    color: #1F3430;
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 2.5vw;
+    text-align: center;
+}
+
+.item-box-content{
+    margin-left: 1.5vw;
+}
+
+.item-header{
+    color: #3B665F;
+    font-size: 1.2em;
+    font-weight: 500;
+    line-height: 2.5vw;
+}
+
+.item-description{
+    color: #1F3430;
+    font-size: 1.05em;
+    width: 22vw;
+    font-weight: 340;
+    line-height: 1.7em;
+    margin-top: 0.6vh;
+}
+
+.illustration{
+    width: 20vw;
+    margin-top: -6vh;
+    margin-left: 9vw;
+    height: 27vh;
+}
+
+img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.area-button{
+    width: 12vw;
+    background-color: #3B665F;
+    border-radius: 20px;
+    border: solid 1px #3B665F;
+    height: 5vh;
+    margin-left: 43.5vw;
+    color: white;
+    font-size: 1.1em;
+
+}
+
+.questionnaire-container{
+    background-color: white;
+    height: 17.5vh;
+    width: 60vw;
+    margin-left: 20vw;
+    position: absolute;
+    top: 70vh;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.area-column-wrapper{
+    display: inline-flex;
+    width: 53vw;
+    margin-left: 3.5vw;
+}
+
+.area-column-left{
+    width: calc(53vw - 16vw);
+    color: #1F3430;
+    font-size: 1.05em;
+    font-weight: 340;
+    line-height: 1.7em;
+    margin-top: 1.8vh;
+}
+
+.questionnaire-button{
+    width: 12vw;
+    background-color: #3B665F;
+    border-radius: 20px;
+    border: solid 1px #3B665F;
+    height: 5vh;
+    color: white;
+    font-size: 1.1em;
+    margin-left: 3vw;
+    margin-top: 3vh;
+}
+
+.foot-container{
+    width: 100vw;
+    height: 9vh;
+    position: absolute;
+    top: 91vh;
+    background-color: #3B665F;
+    display: inline-block;
+}
+
+.footer-top{
+    display: inline-flex;
+    width: 44vw;
+    margin-left: 28vw;
+    height: 3.5vh;
+    margin-top: 1.3vh;
+}
+
+.logo-wrapper{
+    width: 23vw;
+}
+
+.lab-wrapper{
+    color: white;
+    line-height: 3.5vh;
+    width: 56vw;
+    text-align: right;
+    font-size: 0.7em;
+    font-weight: 340;
+}
+
+.footer-bottom{
+    font-size: 0.7em;
+    width: 100vw;
+    text-align: center;
+    line-height: 1.4vh;
+    color: white;
+    font-weight: 500;
+}

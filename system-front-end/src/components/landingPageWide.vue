@@ -34,7 +34,7 @@
               </div>
             </div>
           </div>
-          <div class="item-box" style="margin-top: 2.8vh">
+          <div class="item-box" style="margin-top: 2vh">
             <div class="item-box-index">
               2
             </div>
@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="illustration">
-          <img src="../assets/system-process-illustration.png">
+          <img src="../assets/system-process-illustration-wide.png">
         </div>
       </div>
       <button class="area-button" @click="startDetection">
@@ -62,7 +62,7 @@
       </div>
       <div class="area-column-wrapper">
         <div class="area-column-left">
-          量表测评是抑郁症筛查的常用工具，有助于快速、初步地评估症状水平。
+          量表测评是抑郁症筛查的常用工具，请您根据最近两周的真实情况进行填写，有助于快速、初步地评估症状水平。
         </div>
         <button class="questionnaire-button" @click="startQuestionnaire">参与量表测评</button>
       </div>
@@ -83,7 +83,7 @@
 
 <script>
 export default {
-  name: "landingPage",
+  name: "landingPageWide",
   data(){
     return{
       userID: '',
@@ -91,7 +91,7 @@ export default {
   },
   methods:{
     startDetection(){
-      this.$router.push('/read');
+      this.$router.push('/read_wide');
     },
     startQuestionnaire(){
       this.$router.push('/questionnaire')
@@ -101,5 +101,5 @@ export default {
 </script>
 
 <style scoped>
-@import "./stylesheets/landing-page.css";
+@import "./stylesheets/landing-page-wide.css";
 </style>

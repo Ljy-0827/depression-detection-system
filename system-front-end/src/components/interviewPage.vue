@@ -2,7 +2,7 @@
   <div class="head-container">
     <div class="back-button">
       <i class="bi bi-arrow-left-short" style="font-size: 4em; margin-left: 1.2vw; line-height: 6vh"></i>
-      <div class="back-button-text">返回</div>
+      <div class="back-button-text" @click="backToLandingPage">返回</div>
     </div>
     <div class="step-container">
       <div class="step-box">

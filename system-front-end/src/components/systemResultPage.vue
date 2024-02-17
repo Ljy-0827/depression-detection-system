@@ -10,10 +10,10 @@
             您的测试结果为：
           </div>
           <div class="top-result-instruction">
-            可能患有中重度抑郁症
+            {{ this.depressionInstruction }}
           </div>
         </div>
-        <div class="top-result-warning">
+        <div class="top-result-warning" v-if="isDoctor">
           <i class="bi bi-info-circle" style="margin-right: 1vw;"></i>
           建议就医
         </div>
@@ -40,8 +40,8 @@
     <div class="description-box">
       <div class="main-description">
         <ul>
-          <li>您的分数处于15-19分区间，指示您可能患有：中重度抑郁症。</li>
-          <li>建议您及时就医，并且需要保证积极的心理、药物或联合治疗。</li>
+          <li>您的分数处于{{ this.section }}区间，指示您{{ this.depressionInstruction }}。</li>
+          <li>{{ this.recommendation }}</li>
         </ul>
       </div>
       <div class="second-description">
@@ -52,7 +52,7 @@
           <img src="../assets/system-result-illustration.png">
         </div>
         <div class="description-button-group">
-          <button class="description-button-pri">重新参与测试</button>
+          <button class="description-button-pri" @click="backToLandingPage">重新参与测试</button>
           <button class="description-button">详细结果发至邮箱</button>
           <button class="description-button">抑郁症知识普及</button>
         </div>
@@ -78,10 +78,55 @@ export default {
   data(){
     return{
       score: -1,
+      depressionDegree: '',
+      depressionInstruction: '',
+      recommendation: '',
+      section: '',
+      isDoctor: false,
     }
   },
   mounted() {
     this.score = this.$route.query.score;
+    //this.score = 5;
+    this.calculateInstruction();
+  },
+  methods:{
+    backToLandingPage(){
+      this.$router.push('/');
+    },
+    calculateInstruction(){
+      if(this.score >= 0 && this.score <= 4){
+        this.section = '0-4'
+        this.isDoctor = false
+        this.recommendation = '建议您经常监控自己的状态，可能无需治疗。'
+      }else if(this.score >= 5 && this.score <= 9){
+        this.depressionDegree = '轻度抑郁'
+        this.section = '5-9'
+        this.isDoctor = true
+        this.recommendation = '需根据临床诊断（症状时间和功能损害等）确定治疗的必要性。'
+      }else if(this.score >= 10 && this.score <= 14){
+        this.depressionDegree = '中度抑郁'
+        this.section = '10-14'
+        this.isDoctor = true
+        this.recommendation = '需根据临床诊断（症状时间和功能损害等）确定治疗的必要性。'
+      }else if(this.score >= 15 && this.score <= 19){
+        this.depressionDegree = '中重度抑郁'
+        this.section = '15-19'
+        this.isDoctor = true
+        this.recommendation = '建议您及时就医，并且需要保证积极的心理、药物或联合治疗。'
+      }else if(this.score >= 20 && this.score <= 27){
+        this.depressionDegree = '重度抑郁'
+        this.section = '20-27'
+        this.isDoctor = true
+        this.recommendation = '建议您及时就医，并且需要保证积极的心理、药物或联合治疗。'
+      }
+
+      if(this.score >= 0 && this.score <= 4){
+        this.depressionInstruction = '无抑郁倾向'
+      }else{
+        this.depressionInstruction = '可能患有' + this.depressionDegree
+      }
+    },
   }
 }
 </script>
