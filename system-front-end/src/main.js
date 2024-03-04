@@ -17,17 +17,22 @@ import questionnairePage from "@/components/questionnairePage.vue";
 import questionnaireResultPage from "@/components/questionnaireResultPage.vue";
 import landingPageWide from "@/components/landingPageWide.vue";
 import readingPageWide from "@/components/readingPageWide.vue";
+import interviewPageWide from "@/components/interviewPageWide.vue";
+import systemResultPageWide from "@/components/systemResultPageWide.vue";
+import questionnairePageWide from "@/components/questionnairePageWide.vue";
+import questionnaireResultPageWide from "@/components/questionnaireResultPageWide.vue";
+import waitingResultPageWide from "@/components/waitingResultPageWide.vue";
 
 const myRouter = createRouter({
     mode: 'history',
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [{
-            path: '/',
+            path: '/wide',
             name: 'landing-page',
             component: landingPage,
         },
         {
-          path: '/wide',
+          path: '/',
           name: 'landing-page-wide',
           component: landingPageWide,
         },
@@ -47,9 +52,19 @@ const myRouter = createRouter({
             component: interviewPage,
         },
         {
+            path: '/interview_wide',
+            name: 'interview-page-wide',
+            component: interviewPageWide,
+        },
+        {
             path: '/waiting',
             name: 'waiting-result-page',
             component: waitingResultPage,
+        },
+        {
+            path: '/waiting_wide',
+            name: 'waiting-result-page-wide',
+            component: waitingResultPageWide,
         },
         {
             path: '/system_result',
@@ -57,14 +72,29 @@ const myRouter = createRouter({
             component: systemResultPage,
         },
         {
+            path: '/system_result_wide',
+            name: 'system-result-page-wide',
+            component: systemResultPageWide,
+        },
+        {
             path: '/questionnaire',
             name: 'questionnaire-page',
             component: questionnairePage,
         },
         {
+            path: '/questionnaire_wide',
+            name: 'questionnaire-page-wide',
+            component: questionnairePageWide,
+        },
+        {
             path: '/questionnaire_result',
             name: 'questionnaire-result-page',
             component: questionnaireResultPage,
+        },
+        {
+            path: '/questionnaire_result_wide',
+            name: 'questionnaire-result-page-wide',
+            component: questionnaireResultPageWide,
         }
     ]
 })

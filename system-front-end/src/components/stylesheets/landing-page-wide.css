@@ -1,8 +1,8 @@
 .head-container{
     position: absolute;
-    top: 5.5vh;
-    width: 60vw;
-    margin-left: 20vw;
+    top: 5vh;
+    width: 50vw;
+    margin-left: 25vw;
     display: block;
 }
 
@@ -13,16 +13,16 @@
 }
 
 .header-description{
-    margin-top: 2vh;
-    line-height: 1.7em;
-    font-size: 1.1em;
+    margin-top: 2.5vh;
+    line-height: 1.8em;
+    font-size: 1.05em;
     font-weight: 340;
     color: #1F3430;
 }
 
 .mid-container{
-    width: 60vw;
-    margin-left: 20vw;
+    width: 50vw;
+    margin-left: 25vw;
     height: 5.5vh;
     position: absolute;
     top: 22vh;
@@ -30,15 +30,14 @@
 }
 
 .input-bar-box{
-    width: calc(60vw - 14vw);
+    width: calc(50vw - 14vw);
     height: 5.5vh;
-    margin-left: 0.5vw;
 }
 
 .system-begin-button{
     width: 12vw;
     background-color: #3B665F;
-    margin-left: 1vw;
+    margin-left: 1.5vw;
     border-radius: 24px;
     border: solid 1px #3B665F;
     height: calc(100% - 2px);
@@ -51,7 +50,7 @@
     position: absolute;
     height: calc(5.5vh - 10px);
     margin-top: 5px;
-    left: calc(40.5vw - 6px);
+    left: calc(30vw - 6px);
     width: 6vw;
     color: white;
     font-size: 1.1em;
@@ -77,8 +76,8 @@
 .system-process-container{
     background-color: white;
     height: 37.5vh;
-    width: 60vw;
-    margin-left: 20vw;
+    width: 52vw;
+    margin-left: 24vw;
     position: absolute;
     top: 30vh;
     border-radius: 30px;
@@ -94,14 +93,14 @@
 }
 
 .area-content-wrapper{
-    width: calc(60vw - 6vw);
+    width: calc(52vw - 6vw);
     margin-left: 3.5vw;
     height: 23vh;
     display: inline-flex;
 }
 
 .process-box{
-    width: calc(54vw - 28.5vw);
+    width: calc(46vw - 28.5vw);
     display: block;
     margin-top: 2vh;
 }
@@ -136,16 +135,16 @@
 .item-description{
     color: #1F3430;
     font-size: 1.05em;
-    width: 22vw;
+    width: 20vw;
     font-weight: 340;
-    line-height: 1.7em;
-    margin-top: 0.6vh;
+    line-height: 1.8em;
+    margin-top: 0.5vh;
 }
 
 .illustration{
     width: 20vw;
     margin-top: -6vh;
-    margin-left: 9vw;
+    margin-left: 8vw;
     height: 27vh;
 }
 
@@ -162,7 +161,7 @@ img{
     border-radius: 20px;
     border: solid 1px #3B665F;
     height: 5vh;
-    margin-left: 43.5vw;
+    margin-left: 35.5vw;
     color: white;
     font-size: 1.1em;
 
@@ -170,9 +169,9 @@ img{
 
 .questionnaire-container{
     background-color: white;
-    height: 17.5vh;
-    width: 60vw;
-    margin-left: 20vw;
+    height: 18vh;
+    width: 52vw;
+    margin-left: 24vw;
     position: absolute;
     top: 70vh;
     border-radius: 30px;
@@ -181,16 +180,16 @@ img{
 
 .area-column-wrapper{
     display: inline-flex;
-    width: 53vw;
+    width: 45vw;
     margin-left: 3.5vw;
 }
 
 .area-column-left{
-    width: calc(53vw - 16vw);
+    width: calc(45vw - 16vw);
     color: #1F3430;
     font-size: 1.05em;
     font-weight: 340;
-    line-height: 1.7em;
+    line-height: 1.8em;
     margin-top: 1.8vh;
 }
 
@@ -203,7 +202,7 @@ img{
     color: white;
     font-size: 1.1em;
     margin-left: 3vw;
-    margin-top: 3vh;
+    margin-top: 3.5vh;
 }
 
 .foot-container{

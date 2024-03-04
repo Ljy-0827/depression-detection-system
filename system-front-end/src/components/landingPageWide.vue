@@ -13,7 +13,7 @@
         <el-input v-model="userID" placeholder="请输入您的测试ID" />
       </div>
       <button class="system-begin-button" @click="startDetection">开始系统检测</button>
-      <button class="upload-id-button">确认</button>
+      <button class="upload-id-button" @click="onUserIdInput">确认</button>
     </div>
     <div class="system-process-container">
       <div class="area-header">
@@ -62,7 +62,7 @@
       </div>
       <div class="area-column-wrapper">
         <div class="area-column-left">
-          量表测评是抑郁症筛查的常用工具，请您根据最近两周的真实情况进行填写，有助于快速、初步地评估症状水平。
+          量表测评是抑郁症筛查的常用工具，请您根据最近两周的情况进行填写，有助于快速、初步地评估症状水平。
         </div>
         <button class="questionnaire-button" @click="startQuestionnaire">参与量表测评</button>
       </div>
@@ -82,6 +82,9 @@
 </template>
 
 <script>
+import {ElMessage} from "element-plus";
+import {ipAddress, protocolMode } from "@/utils.js";
+
 export default {
   name: "landingPageWide",
   data(){
@@ -91,11 +94,40 @@ export default {
   },
   methods:{
     startDetection(){
-      this.$router.push('/read_wide');
+      this.$router.push({name:'reading-page-wide', query: {id: this.userID}});
     },
     startQuestionnaire(){
-      this.$router.push('/questionnaire')
+      this.$router.push('/questionnaire_wide')
     },
+    onUserIdInput(){
+      fetch(`${protocolMode}://${ipAddress}/upload-id`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user_id: this.userID}),
+      })
+          .then(response => response.json())
+          .then(data => {
+            // 在上传成功后处理服务器的响应
+            console.log('Server response:', data.message);
+
+            // 显示提示消息
+            ElMessage({
+              message: 'ID上传成功',
+              type: 'success',
+            });
+          })
+          .catch(error => {
+            console.error('Error uploading ID:', error);
+
+            // 显示错误消息
+            ElMessage({
+              message: 'ID上传失败',
+              type: 'error',
+            });
+          });
+    }
   }
 }
 </script>

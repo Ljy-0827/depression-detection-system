@@ -68,6 +68,18 @@
     font-weight: 350;
 }
 
+:deep .el-step__head.is-success{
+    color: white;
+    border-color: #1F3430;
+}
+
+:deep .el-step__head.is-success .el-step__icon.is-text{
+    background-color: #1F3430;
+    width: 1.8vw;
+    height: 1.8vw;
+    font-size: 1em;
+}
+
 :deep .el-step__title.is-wait{
     color:#1F3430;
     font-size: 1em;
@@ -192,7 +204,7 @@
     margin-left: 1.3vw;
 }
 
-.read-text-container{
+.interview-container{
     width: 50vw;
     height: 46vh;
     background-color: #EEF6F2;
@@ -202,7 +214,7 @@
     border-radius: 20px;
 }
 
-.read-button{
+.interview-button{
     width: 26vw;
     margin-left: 37vw;
     height: 5.5vh;
@@ -214,7 +226,7 @@
     font-size: 1.3em;
 }
 
-.read-text-instruction{
+.interview-instruction{
     font-size: 1.4em;
     line-height: 2.1em;
     color: #1F3430;
@@ -222,10 +234,98 @@
     margin-top: calc((46vh - 2.1em - 4px) / 2);
 }
 
-.read-text{
-    margin: 1.3vw 4vw;
-    font-size: 1.05em;
-    white-space: pre-wrap;
+.interview-media-container{
+    background-color: transparent;
+    height: 23vh;
+    width: 48vw;
+    margin-left: 1vw;
+    margin-top: 2vh;
+}
+
+.question-tool-container{
+    background-color: white;
+    height: 16vh;
+    width: 48vw;
+    margin-left: 1vw;
+    margin-top: 2vh;
+    border-radius: 22px;
+    padding-top: 1.5vh;
+}
+
+.finish-instruction{
+    background-color: white;
+    height: 16vh;
+    width: 48vw;
+    margin-left: 1vw;
+    margin-top: 3.5vh;
+    border-radius: 22px;
+    color: #3B665F;
+    font-size: 1.6em;
+    line-height: 16vh;
+    text-align: center;
+    font-weight: 500;
+}
+
+.question-text{
+    margin-left: 2vw;
+    margin-right: 2vw;
+    font-size: 1.15em;
+    line-height: 1.75em;
     color: #1F3430;
-    line-height: 2em;
+    height: 1.7em;
+}
+
+.question-util-box{
+    display: inline-flex;
+    width: 48vw;
+    height: 5vh;
+    margin-top: 5.4vh;
+}
+
+.question-big-button{
+    background-color: #3B665F;
+    border: solid 1px #3B665F;
+    color: white;
+    border-radius: 16px;
+    font-size: 1.3em;
+    width: 26vw;
+    margin-left: 11vw;
+    height: 5.5vh;
+    margin-top: 12vh;
+}
+
+.question-button-pri{
+    width: 10vw;
+    background-color: #3B665F;
+    border: solid 1px #3B665F;
+    color: white;
+    border-radius: 12px;
+    font-size: 1.1em;
+    margin-left: 2vw;
+}
+
+.question-button{
+    width: 10vw;
+    color: #3B665F;
+    border-radius: 12px;
+    font-size: 1.1em;
+    border: solid 2px #3B665F;
+    background-color: white;
+    margin-left: 2vw;
+}
+
+.answer-box{
+    display: inline-flex;
+    background-color: #BDDDCD;
+    height: 100%;
+    width: 17vw;
+    margin-left: 5vw;
+    border-radius: 12px;
+}
+
+.answer-mix{
+    color: #1F3430;
+    font-size: 1.1em;
+    line-height: 5vh;
+    margin-left: 1.5vw;
 }

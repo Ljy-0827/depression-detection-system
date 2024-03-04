@@ -1,0 +1,233 @@
+.title{
+    font-size: 1.8em;
+    color: #3B665F;
+    font-weight: 600;
+    margin-left: 27vw;
+    position: absolute;
+    top: 5vh;
+}
+
+.result-box{
+    width: 46vw;
+    margin-left: 27vw;
+    height: 30vh;
+    position: absolute;
+    top: 12vh;
+}
+
+.top-result-box{
+    display: inline-flex;
+    background-color: #3B665F;
+    height: 11.5vh;
+    border-radius: 22px 22px 0 0;
+    width: 100%;
+}
+
+.top-result-text-box{
+    width: 31.5vw;
+    height: 100%;
+    margin-left: 2.5vw;
+}
+
+.top-result-instruction-small{
+    font-size: 1.05em;
+    color: white;
+    margin-top: 2vh;
+    font-weight: 340;
+}
+
+.top-result-instruction{
+    font-size: 1.5em;
+    color: white;
+    font-weight: 500;
+    margin-top: 0.8vh;
+}
+
+.top-result-warning{
+    width: 9.5vw;
+    height: 7vh;
+    margin-top: 2.25vh;
+    background-color: #1F3430;
+    color: white;
+    border-radius: 14px;
+    font-size: 1.2em;
+    line-height: 7vh;
+    text-align: center;
+}
+
+.bottom-result-box{
+    width: 100%;
+    height: calc(100% - 11.5vh);
+    border-radius: 0 0 22px 22px;
+    display: inline-flex;
+    background-color: white;
+}
+
+.score-tool-box{
+    width: 14.5vw;
+    height: 100%;
+    margin-left: 2.5vw;
+}
+
+.score{
+    background-color: #EEF6F2;
+    color: #3B665F;
+    width: 13vw;
+    height: 8.5vh;
+    border-radius: 16px;
+    margin-top: 1.8vh;
+    padding-left: 1.5vw;
+    display: inline-flex;
+}
+
+.score-instruction-small{
+    font-size: 1.05em;
+    text-align: left;
+    line-height: 8.5vh;
+    width: 5vw;
+}
+
+.score-instruction{
+    font-size: 1.8em;
+    font-weight: 500;
+    text-align: right;
+    line-height: 8.5vh;
+    margin-left: 0.5vw;
+    width: 6vw;
+}
+
+.print-button{
+    background-color: #3B665F;
+    border-radius: 12px;
+    border:solid 1px #3B665F;
+    color: white;
+    width: 100%;
+    height: 4.8vh;
+    margin-top: 1.5vh;
+    font-size: 1.1em;
+}
+
+img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.result-graph-box{
+    margin-left: 4.5vw;
+    height: calc(100% - 4.5vh);
+    margin-top: 2.6vh;
+}
+
+.description-box{
+    position: absolute;
+    background-color: white;
+    height: 44.5vh;
+    width: 46vw;
+    margin-left: 27vw;
+    top: 44vh;
+    border-radius: 26px;
+    padding-top: 0.5vh;
+}
+
+
+.main-description{
+    color: #1F3430;
+    font-size: 1.1em;
+    line-height: 1.8em;
+    margin-left: 1.5vw;
+    width: 46vw;
+    margin-top: -0.5vh;
+}
+
+.second-description{
+    margin-left: 3vw;
+    width: 40.5vw;
+    color: #1F3430;
+    font-size: 1.0em;
+    line-height: 1.8em;
+    text-indent: 2em;
+    font-weight: 340;
+    margin-top: -1vh;
+}
+
+.description-tool-box{
+    display: inline-flex;
+    width: 42.5vw;
+    margin-left: 3.5vw;
+    height: 18.5vh;
+    margin-top: 2vh;
+}
+
+.description-illustration{
+    height: 100%;
+}
+
+.description-button-group{
+    background-color: white;
+    margin-left: 11.5vw;
+    display: block;
+    width: 14vw;
+}
+
+.description-button-pri{
+    width: 100%;
+    height: 4.8vh;
+    border-radius: 14px;
+    margin-top: 0.5vh;
+    background-color: #3B665F;
+    border: solid 1px #3B665F;
+    color: white;
+    font-size: 1.1em;
+}
+
+.description-button{
+    width: 100%;
+    height: 4.8vh;
+    border-radius: 14px;
+    margin-top: 2vh;
+    background-color: #EEF6F2;
+    border: solid 1px #EEF6F2;
+    color: #3B665F;
+    font-size: 1.1em;
+}
+
+.foot-container{
+    width: 100vw;
+    height: 9vh;
+    position: absolute;
+    top: 91vh;
+    background-color: #3B665F;
+    display: inline-block;
+}
+
+.footer-top{
+    display: inline-flex;
+    width: 44vw;
+    margin-left: 28vw;
+    height: 3.5vh;
+    margin-top: 1.3vh;
+}
+
+.logo-wrapper{
+    width: 23vw;
+}
+
+.lab-wrapper{
+    color: white;
+    line-height: 3.5vh;
+    width: 56vw;
+    text-align: right;
+    font-size: 0.7em;
+    font-weight: 340;
+}
+
+.footer-bottom{
+    font-size: 0.7em;
+    width: 100vw;
+    text-align: center;
+    line-height: 1.4vh;
+    color: white;
+    font-weight: 500;
+}

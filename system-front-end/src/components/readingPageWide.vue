@@ -63,6 +63,7 @@ export default {
   name: "readingPageWide",
   data(){
     return{
+      id: '',
       countdown: 3,
       timer: null,
 
@@ -88,6 +89,7 @@ export default {
 
   mounted() {
     this.startCountdown();
+    this.id = this.$route.query.id;
   },
 
   methods:{
@@ -95,7 +97,8 @@ export default {
       this.$router.push('/');
     },
     nextDetection(){
-      this.$router.push('/interview');
+      //this.$router.push('/interview_wide');
+      this.$router.push({name:'interview-page-wide', query: {id: this.id}});
     },
 
     startCountdown() {
@@ -191,12 +194,11 @@ export default {
         const blob = new Blob(this.chunks, {type: 'video/webm'});
 
         const fileSizeInBytes = blob.size;
-        //const fileSizeInMB = fileSizeInBytes / (1024 * 1024);
-        //console.log(`视频文件大小: ${fileSizeInMB} MB`);
 
         const formData = new FormData();
-        formData.append('video', blob, 'reading.webm');
+        formData.append('video', blob, `reading.webm`);
         formData.append('fileSize', fileSizeInBytes);
+        formData.append('userId', this.id)
 
         // 使用fetch API将数据POST到后端
         const response = await fetch(`${protocolMode}://${ipAddress}/upload-video`, {
@@ -210,7 +212,7 @@ export default {
             type: 'success',
           });
           this.isUploading = false;
-          this.$router.push('/interview');
+          this.$router.push({name:'interview-page-wide', query: {id: this.id}});
         } else {
           ElMessage.error('视频上传失败');
           console.error('视频上传失败：', response.statusText);

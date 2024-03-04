@@ -1,0 +1,30 @@
+.container{
+    background-color: white;
+    height: 80vh;
+    width: 80vw;
+    top: 10vh;
+    margin-left: 10vw;
+    position: absolute;
+    border-radius: 30px;
+}
+
+img{
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.illustration{
+    width: 26vw;
+    margin-top: 11vh;
+    margin-left: 27vw;
+}
+
+.text{
+    line-height: 1.8em;
+    font-size: 1.8em;
+    text-align: center;
+    color: #3B665F;
+    font-weight: 500;
+}
